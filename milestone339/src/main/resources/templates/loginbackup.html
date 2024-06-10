@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.1
+Module name: Login Page
+Module version: 1.0
+Authors: Harold Bermudez
+Synopsis: This module provides the login page for the application.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+	<head>
+	<style>
+	form {
+		border: 3px solid #ccc;
+	}
+	
+	input[type=text], input[type=password] {
+		width: 100%;
+		padding:12px 20px;
+		margin:8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		border-radius:4xpx;
+	}
+	
+	button {
+		background-color: #04aa6D;
+		color:white;
+		padding:14px 20px;
+		margin:8px 0;
+		border: none;
+		cursor: pointer;
+		width:100%;
+		border-radius:3px;
+	}
+	
+	button:hover {
+		opacity: 0.8;
+	}
+	.cancelbtn {
+		width:auto;
+		padding:10px 18px;
+		background-color:#f44336;
+	}
+	.imgcontainer {
+		text-align:center;
+		margin:24px 0 12px 0;
+	}
+	img.avatar {
+		width:40%;
+		max-width:300px;
+		border-radius:50%;
+	}
+	.container {
+		padding:16px;
+	}
+	span.psw {
+		float:right;
+		padding-top:16px;
+	}
+	.fieldError {
+		color:red;
+	}
+	</style>
+	
+<body>
+<div layout:fragment="content">
+	<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+	
+	<div class "imgcontainer">
+		<img th:src="@{/img/login_avatar.png}" style="width:25%; height:25%;" alt="Avator" class="avator"/>
+	</div>
+	
+	<div class="container">
+	<b>Username</b>
+	<input type="text" th:field="*{username}" placeholder = "Enter username" name"uname" required>
+	<div class="fieldError">
+		<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" >User Name Error</p>
+		</div>
+		
+	<b>Password</b>
+	<input type="password" th:field="*{password}" name"psw" required>
+	<div class="fieldError">
+		<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" >Password Error</p>
+		</div>
+		<button type"submit">Login</button>
+		</div>
+		
+		<div class="container" style="background-color: #ddd">
+			<button type="button" class="cancelbtn">Cancel</button>
+			<span class="pws">Forgot <a href="#">password?</a></span>
+			</div>
+		<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+		<div th:each="err :  ${#fields.errors('*')} ">
+			<span th:text="${err}" class="fieldError"></span>
+			</div>
+	</form>	
+</div>		
+</body>
+
+</html>	

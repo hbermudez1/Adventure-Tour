@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.2
+Module name: Register Page
+Module version: 1.1
+Authors: Gabriel Cepleanu and Harold Bermudez
+Synopsis: This module provides the registration page for the application.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+<head>
+<style>
+.light {
+			background-color: #DDF2FF;
+		}
+		.green {
+			background-color: #8074AC;
+		}
+		.white {
+			background-color: #fff;
+		}
+
+
+</style>
+</head>
+	<div layout:fragment="content" class="light">
+	<div class="green">
+		<div class="p-3">
+		<h1>Register for a new account</h1>
+		<div style="width:25%;">
+		<form action="#" th:action="@{doRegister}" th:object="${registerModel}" method="post">
+  <div class="form-group">
+    <label for="first">First name</label>
+    <input type="text" th:field="*{first}" class="form-control" id="first" placeholder="First name">
+  </div>
+  <div class="form-group">
+    <label for="first">Last name</label>
+    <input type="text" th:field="*{last}" class="form-control" id="last" placeholder="Last name">
+  </div>
+  <div class="form-group">
+    <label for="first">Email</label>
+    <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Email">
+  </div>
+  <h3>Address</h3>
+  <div class="form-group">
+    <label for="first">Street</label>
+    <input type="text" th:field="*{street}" class="form-control" id="street" placeholder="Street">
+  </div>
+  <div class="form-group">
+    <label for="first">City</label>
+    <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="City">
+  </div>
+  <div class="form-group">
+    <label for="first">State</label>
+    <input type="text" th:field="*{state}" class="form-control" id="state" placeholder="State">
+  </div>
+  <div class="form-group">
+    <label for="first">ZIP Code</label>
+    <input type="text" th:field="*{zip}" class="form-control" id="zip" placeholder="ZIP Code">
+  </div>
+  <h2>Account</h2>
+  <div class="form-group">
+    <label for="first">Username</label>
+    <input type="text" th:field="*{username}" class="form-control" id="username" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+	</div>
+	</div>
+</html>

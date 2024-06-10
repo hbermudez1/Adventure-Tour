@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.2
+Module name: Product Response Page
+Module version: 1.0
+Authors: Gabriel Cepleanu
+Synopsis: This module displays a response from the product creation page. Will not be in future versions.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+<head>
+<style>
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding:2px;
+	}
+</style>
+
+</head>
+	<div layout:fragment="content">
+	<body>
+		<h1>Viewing Product</h1>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Product Name</th>
+					<th>Starting Date</th>
+					<th>Days of Trip</th>
+					<th>Photo</th>
+					<th>Location</th>
+					<th>Description</th>
+					<th>Price</th>
+				</tr>
+				<tr>
+				<td th:text="${order.getId()}"></td>
+				<td th:text="${order.getVacationName()}"></td>
+				<td th:text="${order.getStartingDate()}"></td>
+				<td th:text="${order.getDaysOfTrip()}"></td>
+				<td th:text="${order.getPhotoLink()}"></td>
+				<td th:text="${order.getLocation}"></td>
+				<td th:text="${order.getDescription()}"></td>
+				<td th:text="${order.getPrice()}"></td>
+				</tr>
+			</table>
+	</body>
+	</div>
+</html>

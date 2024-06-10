@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.2
+Module name: Product Response Page
+Module version: 1.0
+Authors: Gabriel Cepleanu
+Synopsis: This module displays a response from the product creation page. Will not be in future versions.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+<head>
+<style>
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding:2px;
+	}
+</style>
+
+</head>
+	<div layout:fragment="content">
+	<body>
+		<h1>Products</h1>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Product Name</th>
+					<th>Starting Date</th>
+					<th>Days of Trip</th>
+					<th>Photo</th>
+					<th>Location</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+				<tr th:each="product : ${products}">
+				<td th:text="${product.getId()}"></td>
+				<td th:text="${product.getVacationName()}"></td>
+				<td th:text="${product.getStartingDate()}"></td>
+				<td th:text="${product.getDaysOfTrip()}"></td>
+				<td th:text="${product.getPhotoLink()}"></td>
+				<td th:text="${product.getLocation()}"></td>
+				<td th:text="${product.getDescription()}"></td>
+				<td th:text="${product.getPrice()}"></td>
+				<td>
+				<form action="#" th:action="@{/product/delete/}" th:object="${product}" method="post"> 
+					<input name="id" type="hidden" th:value="${product.getId()}">
+					 <input name="vacationName"type="hidden" th:value="${product.getVacationName()}">
+					 <input name="startingDate"type="hidden" th:value="${product.getStartingDate()}">
+					<input name="daysOfTrip" type="hidden" th:value="${product.getDaysOfTrip()}">
+					<input name="photoLink" type="hidden"  th:value="${product.getPhotoLink()}">
+					<input name="location" type="hidden"  th:value="${product.getLocation()}">
+					<input name="description" type="hidden"  th:value="${product.getDescription()}">
+					<input name="price" type="hidden"  th:value="${product.getPrice()}">
+						<button class="btn btn-danger" type="submit" name="delete">Delete</button>
+					</form>
+					<form action="#" th:action="@{/product/edit/}" th:object="${product}" method="post"> 
+					<input name="id" type="hidden" th:value="${product.getId()}">
+					 <input name="vacationName"type="hidden" th:value="${product.getVacationName()}">
+					 <input name="startingDate"type="hidden" th:value="${product.getStartingDate()}">
+					<input name="daysOfTrip" type="hidden" th:value="${product.getDaysOfTrip()}">
+					<input name="photoLink" type="hidden"  th:value="${product.getPhotoLink()}">
+					<input name="location" type="hidden"  th:value="${product.getLocation()}">
+					<input name="description" type="hidden"  th:value="${product.getDescription()}">
+					<input name="price" type="hidden"  th:value="${product.getPrice()}">
+						<button class="btn btn-secondary" type="submit" name="edit">Edit</button>
+					</form>
+				</td>
+				</tr>
+			</table>
+	</body>
+	</div>
+</html>

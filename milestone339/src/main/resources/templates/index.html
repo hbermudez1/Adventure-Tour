@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.1
+Module name: Index Page
+Module version: 1.0
+Authors: Gabriel Cepleanu
+Synopsis: This module provides the main page for the application.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+<head>
+	<style>
+		.light {
+			background-color: #DDF2FF;
+		}
+		.green {
+			background-color: #8074AC;
+		}
+		.white {
+			background-color: #fff;
+		}
+	</style>
+</head>
+	<div layout:fragment="content" class="light">
+		<div class="green">
+		<div class="p-3">
+		<img src="/img/templogo_large.png" class="rounded mx-auto d-block" alt="..." style="width:25%; height:25%;">
+		</div>
+		</div>
+		<!-- <b><p th:text="${title}"></p></b> -->
+		<div class="white">
+		<h1>Welcome to AdvenTour!</h1><br>
+		<h3>Your next vacation is just a click away!</h3><br>
+		<p>We strive to provide our customers with the most exciting vacation tour packages! Choose from a wide variety of locations that accomodate to your needs.
+		</div>
+		<div class="container-sm" style="width:50%;">
+		<h2>Featured Tours</h2>
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/img/tours/sample1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/tours/sample2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/tours/sample3.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+		</div>
+	</div>
+</html>

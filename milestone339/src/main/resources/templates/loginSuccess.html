@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.1
+Module name: Login Response Page
+Module version: 1.0
+Authors: Harold Bermudez
+Synopsis: This module displays the response from the login page. Will be removed in the future.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+	<div layout:fragment="content">
+		<h1>Login was successful!</h1>
+		<p th:text="${userModel}"></p>
+	</div>
+</html>

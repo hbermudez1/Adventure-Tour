@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.4
+Module name: Product Update Page
+Module version: 1.0
+Authors: Gabriel Cepleanu
+Synopsis: This module provides a page to update a product
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+<head>
+<style>
+.light {
+			background-color: #DDF2FF;
+		}
+		.green {
+			background-color: #8074AC;
+		}
+		.white {
+			background-color: #fff;
+		}
+.fieldError {
+		color:red;
+	}
+
+</style>
+</head>
+	<div layout:fragment="content" class="green">
+		<h1>Updating product</h1>
+		<div style="width:25%;">
+		<form action="#" th:action="@{/product/doUpdate}" th:object="${productModel}" method="post">
+		<input type="hidden" th:field="${productModel.id}" name="id">
+  <div class="form-group">
+    <label for="vacationName">Product Name</label>
+    <input type="text" th:field="*{vacationName}" class="form-control" id="vacationName" placeholder="Vacation Name">
+    <div class="fieldError">
+	<p th:if="${#fields.hasErrors('vacationName')}" th:errors="*{vacationName}" >Vacation Name Error</p>
+	</div>
+  </div>
+  <div class="form-group">
+    <label for="startingDate">Starting Date</label>
+    <input type="date" th:field="*{startingDate}" class="form-control" id="startingDate" placeholder="Starting Date">
+  </div>
+  <div class="form-group">
+    <label for="daysOfTrip">Days of Trip</label>
+    <input type="number" th:field="*{daysOfTrip}" class="form-control" id="daysOfTrip" placeholder="Days of Trip">
+  </div>
+  <div class="form-group">
+    <label for="photoLink">Photo Link</label>
+    <input type="text" th:field="*{photoLink}" class="form-control" id="photoLink" placeholder="Photo Link">
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" th:field="*{location}" class="form-control" id="location" placeholder="Location">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" th:field="*{price}" class="form-control" id="price" placeholder="Price">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+	</div>
+	</div>
+</html>

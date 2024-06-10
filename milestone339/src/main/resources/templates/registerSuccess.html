@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.1
+Module name: Registration Response Page
+Module version: 1.0
+Authors: Gabriel Cepleanu
+Synopsis: This module displays a response from the registration page. Will not be in future versions.
+ -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/basicTemplate">
+	<div layout:fragment="content">
+		<h1>New user was created!</h1>
+		<p th:text="${userModel}"</p>
+	</div>
+</html>

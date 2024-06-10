@@ -1,0 +1,35 @@
+<!-- 
+Project Name: CST-339 Milestone Project
+Version: 1.5
+Module name: Main Header
+Module version: 1.1
+Authors: Gabriel Cepleanu
+Synopsis: This module provides the main header for the application
+ -->
+ <div class="main-header" th:fragment="header" style="position:fixed; top: 0px; width:100%;">
+ 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #7392BF;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+    <img src="/img/templogo.png" width="180" height="60" alt="">
+  	</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/product/all">Products</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/product/create">Create Product</a>
+        </li>
+      </ul>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  		<a sec:authorize="!isAuthenticated()" class="btn btn-light btn-lg me-md-2" type="button" href="/login/">Login</a>
+  		<a sec:authorize="!isAuthenticated()" class="btn btn-light btn-lg" type="button" href="/register/">Register</a>
+  		<form action="#" th:action="@{/logout}" method="post">
+  		<input type="submit" sec:authorize="isAuthenticated()" class="btn btn-light btn-lg me-md-2" value="Logoff"></input>
+  		</form>
+	  </div>
+  </div>
+</nav>
+</div>
